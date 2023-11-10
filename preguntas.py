@@ -28,10 +28,10 @@ def pregunta_01():
     print(X.shape)
 
     # Transforme `y` a un array de numpy usando reshape
-    y_reshaped = y.reshape(-1, 1)
+    y_reshaped = y.reshape(-1,1)
 
     # Trasforme `X` a un array de numpy usando reshape
-    X_reshaped = X.reshape(-1, 1)
+    X_reshaped = X.reshape(-1,1)
 
     # Imprima las nuevas dimensiones de `y`
     print(y_reshaped.shape)
@@ -88,10 +88,7 @@ def pregunta_03():
 
     # Cree El espacio de predicción. Esto es, use linspace para crear
     # un vector con valores entre el máximo y el mínimo de X_fertility
-    prediction_space = np.linspace(
-        X_fertility.min(),
-        X_fertility.max(),
-    100).reshape(-1,1)
+    prediction_space = np.linspace(X_fertility.min(),X_fertility.max(),100).reshape(-1,1)
 
     # Entrene el modelo usando X_fertility y y_life
     reg.fit(X_fertility.reshape(-1,1), y_life.reshape(-1,1))
@@ -127,11 +124,7 @@ def pregunta_04():
 
     # Divida los datos de entrenamiento y prueba. La semilla del generador de números
     # aleatorios es 53. El tamaño de la muestra de entrenamiento es del 80%
-    (X_train, X_test, y_train, y_test,) = train_test_split(X_fertility.reshape(-1,1),
-        y_life.reshape(-1,1),
-        test_size=0.2,
-        random_state=53,
-    )
+    (X_train, X_test, y_train, y_test,) = train_test_split(X_fertility.reshape(-1,1), y_life.reshape(-1,1), test_size=0.2, random_state=53)
 
     # Cree una instancia del modelo de regresión lineal
     linearRegression = LinearRegression()
